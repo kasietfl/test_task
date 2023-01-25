@@ -8,23 +8,23 @@ class UserRepository {
   UserRepository({required NetworkService networkService})
       : _networkService = networkService;
 
-  Future<UserModel> getAllUsers() async {
+  Future<UserModel> getAll() async {
     final response = await _networkService.get(ApiUrl.getUsers);
     return UserModel.fromJson(response.data);
   }
 
-  Future<UserModel> getUser() async {
-    final response = await _networkService.get(ApiUrl.getUsers);
-    return UserModel.fromJson(response.data);
-  }
+  // Future<UserModel> getUser() async {
+  //   final response = await _networkService.get(ApiUrl.getUsers);
+  //   return UserModel.fromJson(response.data);
+  // }
 
-  Future<UserModel> createUser() async {
-    final response = await _networkService.get(ApiUrl.getUsers);
-    return UserModel.fromJson(response.data);
-  }
+  // Future<UserModel> createUser() async {
+  //   final response = await _networkService.get(ApiUrl.getUsers);
+  //   return UserModel.fromJson(response.data);
+  // }
 
-  Future<UserModel> deleteUser() async {
-    final response = await _networkService.get(ApiUrl.getUsers);
-    return UserModel.fromJson(response.data);
-  }
+  // Future<UserModel> deleteUser() async {
+  //   final response = await _networkService.get(ApiUrl.getUsers);
+  //   return UserModel.fromJson(response.data);
+  // }
 }

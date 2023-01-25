@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_task/data/models/user_provider.dart';
+
 import 'package:test_task/presentation/screens/home.dart';
 
 class MyApp extends StatelessWidget {
@@ -6,10 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: Home(),
-      debugShowCheckedModeBanner: false,
+    return ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+      child: const MaterialApp(
+        title: 'Flutter Demo',
+        home: Home(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
