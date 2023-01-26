@@ -6,7 +6,7 @@ import 'package:test_task/data/repository/user_repository.dart';
 
 final locator = GetIt.instance;
 
-void setup() {
+Future<void> setup() async {
   final Dio dio = Dio(BaseOptions(baseUrl: ApiUrl.baseUrl));
   final NetworkService networkService = NetworkService(dio: dio);
 

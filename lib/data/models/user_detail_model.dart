@@ -1,50 +1,32 @@
-class UserModel {
-  final int? page;
-  final int? perPage;
-  final int? total;
-  final int? totalPages;
-  final List<User>? data;
+class UserDetailModel {
+  final Data? data;
   final Support? support;
 
-  UserModel({
-    this.page,
-    this.perPage,
-    this.total,
-    this.totalPages,
+  UserDetailModel({
     this.data,
     this.support,
   });
 
-  UserModel.fromJson(Map<String, dynamic> json)
-      : page = json['page'] as int?,
-        perPage = json['per_page'] as int?,
-        total = json['total'] as int?,
-        totalPages = json['total_pages'] as int?,
-        data = (json['data'] as List?)
-            ?.map((dynamic e) => User.fromJson(e as Map<String, dynamic>))
-            .toList(),
+  UserDetailModel.fromJson(Map<String, dynamic> json)
+      : data = (json['data'] as Map<String, dynamic>?) != null
+            ? Data.fromJson(json['data'] as Map<String, dynamic>)
+            : null,
         support = (json['support'] as Map<String, dynamic>?) != null
             ? Support.fromJson(json['support'] as Map<String, dynamic>)
             : null;
 
-  Map<String, dynamic> toJson() => {
-        'page': page,
-        'per_page': perPage,
-        'total': total,
-        'total_pages': totalPages,
-        'data': data?.map((e) => e.toJson()).toList(),
-        'support': support?.toJson()
-      };
+  Map<String, dynamic> toJson() =>
+      {'data': data?.toJson(), 'support': support?.toJson()};
 }
 
-class User {
+class Data {
   final int? id;
   final String? email;
   final String? firstName;
   final String? lastName;
   final String? avatar;
 
-  User({
+  Data({
     this.id,
     this.email,
     this.firstName,
@@ -52,7 +34,7 @@ class User {
     this.avatar,
   });
 
-  User.fromJson(Map<String, dynamic> json)
+  Data.fromJson(Map<String, dynamic> json)
       : id = json['id'] as int?,
         email = json['email'] as String?,
         firstName = json['first_name'] as String?,

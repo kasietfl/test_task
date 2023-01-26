@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_task/data/models/user_provider.dart';
+import 'package:test_task/presentation/provider/user_provider.dart';
 
 import 'package:test_task/presentation/screens/home.dart';
 

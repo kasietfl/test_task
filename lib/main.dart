@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test_task/app/app.dart';
-import 'package:test_task/app/locator.dart';
+import 'package:test_task/app/locator.dart' as di;
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setup();
+  await di.setup();
   runApp(const MyApp());
 }
