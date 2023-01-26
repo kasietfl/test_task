@@ -12,12 +12,8 @@ class UserProvider with ChangeNotifier {
   UserDetailModel get user => _user;
 
   Future<void> getAllUsers() async {
-    // isLoading = true;
-    // notifyListeners();
-
     final response = await locator<UserRepository>().getAll();
     _users = response;
-    // isLoading = false;
     notifyListeners();
   }
 
@@ -35,7 +31,7 @@ class UserProvider with ChangeNotifier {
 
   Future<void> deleteUserId({required int id}) async {
     // bool success = await locator<UserRepository>().deleteUser(id: id);
-    _users.data?.removeWhere((element) => element.id == id);
+    _users.data?.removeAt(id);
     notifyListeners();
   }
 }

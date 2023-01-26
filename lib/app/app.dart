@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => UserProvider(),
       child: const MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Test Task',
         home: Home(),
         debugShowCheckedModeBanner: false,
       ),

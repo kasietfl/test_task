@@ -17,9 +17,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
     context.read<UserProvider>().getAllUsers();
-    // });
   }
 
   Future<void> refresh() async {
@@ -42,11 +40,6 @@ class _HomeState extends State<Home> {
         ),
       ]),
       body: Consumer<UserProvider>(builder: (context, value, child) {
-        // if (value.isLoading) {
-        //   return const Center(
-        //     child: CircularProgressIndicator(),
-        //   );
-        // }
         final users = value.users.data;
         return RefreshIndicator(
           displacement: 80,
@@ -70,9 +63,7 @@ class _HomeState extends State<Home> {
                   direction: DismissDirection.endToStart,
                   key: UniqueKey(),
                   onDismissed: (direction) {
-                    context
-                        .read<UserProvider>()
-                        .deleteUserId(id: users?[index].id ?? 0);
+                    context.read<UserProvider>().deleteUserId(id: index);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -114,9 +105,6 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                       onTap: () {
-                        // context
-                        //     .read<UserProvider>()
-                        //     .getUserDetail(id: users?[index].id ?? 0);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

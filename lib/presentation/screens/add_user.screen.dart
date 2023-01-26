@@ -49,7 +49,7 @@ class AddUserScreen extends StatelessWidget {
                     TextField(
                       maxLines: 1,
                       decoration: const InputDecoration(
-                        hintText: "e-mail",
+                        hintText: "E-mail",
                         border: OutlineInputBorder(),
                       ),
                       keyboardType: TextInputType.emailAddress,
@@ -63,7 +63,7 @@ class AddUserScreen extends StatelessWidget {
                           onPressed: () {
                             context.read<UserProvider>().createNewUser(
                                 user: User(
-                                    id: 99,
+                                    id: 9,
                                     email: emailController.text,
                                     firstName: nameController.text));
                             Navigator.of(context).pop();
